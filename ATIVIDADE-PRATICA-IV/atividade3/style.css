@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+}
+
+.app-container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 70px 1fr auto;
+    grid-template-areas: 
+        "nav nav"
+        "side main"
+        "foot foot";
+}
+
+.navbar {
+    grid-area: nav;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e4e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4f46e5;
+}
+
+.main-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.auth-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.dashboard-sidebar {
+    grid-area: side;
+    background-color: #ffffff;
+    border-right: 1px solid #e1e4e8;
+    padding: 30px 20px;
+}
+
+.profile-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+}
+
+.sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-links a {
+    display: block;
+    padding: 12px 15px;
+    color: #4b5563;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.sidebar-links a.active, .sidebar-links a:hover {
+    background-color: #eeebff;
+    color: #4f46e5;
+}
+
+.content-wrapper {
+    grid-area: main;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.welcome-box {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.welcome-box h2 {
+    margin-bottom: 8px;
+}
+
+.courses-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e1e4e8;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-thumb {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.math { background-color: #059669; }
+.js { background-color: #d97706; }
+.design { background-color: #2563eb; }
+.security { background-color: #dc2626; }
+
+.course-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.course-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.course-info p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.duration {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.btn-start {
+    background-color: transparent;
+    color: #4f46e5;
+    border: 1px solid #4f46e5;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-start:hover {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.app-footer {
+    grid-area: foot;
+    background-color: #ffffff;
+    border-top: 1px solid #e1e4e8;
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 200px 1fr;
+    }
+    .courses-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "foot";
+    }
+    .dashboard-sidebar {
+        display: none;
+    }
+    .courses-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+    .main-menu {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .auth-actions {
+        width: 100%;
+    }
+    .auth-actions .btn {
+        flex-grow: 1;
+    }
+    .courses-section {
+        grid-template-columns: 1fr;
+    }
+}
